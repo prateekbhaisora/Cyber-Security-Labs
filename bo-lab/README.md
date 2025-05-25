@@ -15,3 +15,12 @@ This repository contains code for exploiting `Buffer Overflow` vulnerabilities o
 * **06-def:** This directory contains code for demonstrating various defence mechanisms against buffer overflow attacks in x86_64 systems such as `Stack Canaries`, `W^X` bit, `Address Space Layout Randomization (ASLR)`.
 
 * **07-other:** This directory contains a simple text file that comprises of various `commands` used during demonstation of this lab.
+
+Ensure that you have `Address Space Layout Randomization (ASLR)` disabled on your system using the following commands: 
+
+```sh
+sudo sysctl -w kernel.randomize_va_space=0
+cat /proc/sys/kernel/randomize_va_space
+```
+
+*Note:* All code has been tested on an `Ubuntu 22.04.5 LTS x86_64` system.

@@ -1,10 +1,10 @@
 # Bash commands
 
+dpkg --print-architecture
 export NAME=PRATEEK
 echo $NAME
 unset NAME
 gcc hello.c -c
-dpkg --print-architecture
 readelf -h hello.o
 readelf -SW hello.o
 gcc hello.c -o hello
@@ -40,8 +40,9 @@ si 3
 info locals
 layout split
 x/64x $rsp
-x/64gx $rsp
+x/16gx $rsp
 x/4x 0x7fffffffe218
+p/x &buffer
 r AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 gcc -fstack-protector-all -z execstack -no-pie -m64 -g scanner.c -o scanner
 gdb -q ./ret2libc
