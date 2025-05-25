@@ -1,0 +1,60 @@
+# Bash commands
+
+export NAME=PRATEEK
+echo $NAME
+unset NAME
+gcc hello.c -c
+dpkg --print-architecture
+readelf -h hello.o
+readelf -SW hello.o
+gcc hello.c -o hello
+readelf -lW hello
+objdump --disassemble-all hello > hello.S
+objdump --disassemble hello
+./hello &
+ps -ae | grep hello
+cat /proc/158467/maps
+gcc -fno-stack-protector -z execstack -no-pie -m64 -g foo-bar.c -o foo-bar
+echo $SHELL
+cat /proc/sys/kernel/randomize_va_space
+sudo sysctl -w kernel.randomize_va_space=2
+od -h ret2libc
+hexdump -C exit_payload.txt
+man 2 syscall
+sudo ps aux | grep ./sh
+./sh-payload-gen.py | env - setarch -R ./sh
+sudo apt install python3-ropgadget
+ROPgadget --binary /usr/lib/x86_64-linux-gnu/libc.so.6 | grep "ret"
+ROPgadget --binary /usr/lib/x86_64-linux-gnu/libc.so.6 | grep "pop rbp ; ret"
+
+# GDB commands
+
+l
+l -
+b 9
+d
+r
+info registers
+si
+si 3
+info locals
+layout split
+x/64x $rsp
+x/64gx $rsp
+x/4x 0x7fffffffe218
+r AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+gcc -fstack-protector-all -z execstack -no-pie -m64 -g scanner.c -o scanner
+gdb -q ./ret2libc
+p system
+info frame
+x/gx 0x7fffffffe1f0
+frame 0
+frame 1
+frame 2
+n
+p system 
+info proc mappings
+find 0x7ffff7d81000,0x7ffff7f9d000,"/bin/sh"
+x/s 0x7ffff7f59678
+r < rop-payload.bin
+x/10i $rip
